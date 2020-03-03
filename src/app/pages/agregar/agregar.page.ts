@@ -16,8 +16,8 @@ export class AgregarPage implements OnInit {
 
   constructor( private deseosService:DeseosService,
                private route:ActivatedRoute) {
-                const listaID = this.route.snapshot.paramMap.get('listaId');  
-                this.lista = this.deseosService.obtenerLista(listaID);
+               const listaID = this.route.snapshot.paramMap.get('listaId');  
+               this.lista = this.deseosService.obtenerLista(listaID);
    }
 
   ngOnInit() {
@@ -51,6 +51,13 @@ export class AgregarPage implements OnInit {
 
     this.deseosService.guardarStore();
     console.log(this.deseosService.listas);
+  }
+
+
+  borrar(i:number){
+
+      this.lista.items.splice(i,1);
+      this.deseosService.cargarStarage();
   }
 
 }

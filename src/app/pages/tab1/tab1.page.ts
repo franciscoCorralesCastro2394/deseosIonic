@@ -47,7 +47,7 @@ lista:Lista[] = []
             }
 
            const listaId = this.deseosService.crearLista(data.titulo);
-          this.router.navigateByUrl(`/tabs/tab1/agregar/${listaId}`);
+           this.router.navigateByUrl(`/tabs/tab1/agregar/${listaId}`);
           
           } 
          }
@@ -55,6 +55,15 @@ lista:Lista[] = []
     });
 
     alert.present();
+  }
+
+
+  listaSeleccionada(lista:Lista){
+
+    console.log(lista);
+    debugger
+    this.router.navigateByUrl(`/tabs/tab1/agregar/${lista.id}`);
+
   }
 
 }
